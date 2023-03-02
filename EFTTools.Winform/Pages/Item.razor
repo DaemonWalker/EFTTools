@@ -1,0 +1,68 @@
+﻿@page "/item/{ItemId}"
+@using System.Text.Json;
+@inject EFTData eftData
+
+<div>
+    <div class="row mb-3">
+        <label for="itemId" class="col-sm-2 col-form-label">物品Id</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="itemId" value="@(itemInfo.Id)" readonly />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="itemName" class="col-sm-2 col-form-label">物品全名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="itemName" value="@(itemInfo.Name)" readonly />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="itemSName" class="col-sm-2 col-form-label">物品短名称</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="itemSName" value="@(itemInfo.ShortName)" readonly />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="itemDes" class="col-sm-2 col-form-label">描述</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="itemDes" value="@(itemInfo.Description)" readonly />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="partentId" class="col-sm-2 col-form-label">上级Id</label>
+        <div class="col-sm-10">
+            <NavLink href="@($"/item/{itemInfo.ParentId}")">@itemInfo.ParentId</NavLink>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="height" class="col-sm-2 col-form-label">格子高度</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="height" value="@(json.Get("Height"))" readonly />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="width" class="col-sm-2 col-form-label">格子宽度</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="width" value="@(json.Get("Width"))" readonly />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="questItem" class="col-sm-2 col-form-label">是否任务物品</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="questItem" value="@(json.GetProperty("QuestItem").GetBoolean()?"是":"否")" readonly />
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public string ItemId { get; set; }
+    private ItemModel itemInfo;
+    private JsonElement json;
+
+    protected override void OnInitialized() {
+        if (eftData.GetItemInfo(ItemId, out itemInfo)) {
+            json = itemInfo.JsonElement.GetItemProps();
+        }
+    }
+}
+
+
