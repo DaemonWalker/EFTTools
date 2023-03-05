@@ -35,7 +35,29 @@ namespace EFTTools.Common {
         }
 
         public IEnumerable<ItemModel> SearchItemByName(string name) {
-            return idDict!.Values.Where(p => p.Name.Contains(name, StringComparison.CurrentCultureIgnoreCase));
+            var names = name.Split(' ').Where(p => !string.IsNullOrWhiteSpace(p)).ToList();
+
+            return idDict!.Values.Where(p => {
+                var contains = true;
+                foreach (var item in names) {
+                    if (!p.ShortName.Contains(item, StringComparison.CurrentCultureIgnoreCase)) {
+                        contains = false;
+                        break;
+                    }
+                }
+                if (contains) {
+                    return true;
+                }
+
+                contains = true;
+                foreach (var item in names) {
+                    if (!p.Name.Contains(item, StringComparison.CurrentCultureIgnoreCase)) {
+                        contains = false;
+                        break;
+                    }
+                }
+                return contains;
+            });
         }
 
 

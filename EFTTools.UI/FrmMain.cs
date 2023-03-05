@@ -38,8 +38,10 @@ namespace EFTTools.UI {
         }
 
         private void dgvItems_CellClick(object sender, DataGridViewCellEventArgs e) {
-            var cell = dgvItems.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            var id = cell.Value.ToString()!;
+            if (e.RowIndex < 0) {
+                return;
+            }
+            var id = dgvItems.Rows[e.RowIndex].Cells[0].Value.ToString()!;
             var frm = new FrmItem(id);
             frm.ShowDialog();
         }

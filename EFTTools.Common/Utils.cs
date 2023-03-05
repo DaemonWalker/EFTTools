@@ -106,5 +106,15 @@ namespace EFTTools.Common {
                 return "";
             }
         }
+
+        public static string GetBundle(this JsonElement element) {
+            if (!element.TryGetProperty("Prefab", out var prefab)) {
+                return string.Empty;
+            }
+            if (!prefab.TryGetProperty("path", out var path)) {
+                return string.Empty;
+            }
+            return path.GetString() ?? string.Empty;
+        }
     }
 }

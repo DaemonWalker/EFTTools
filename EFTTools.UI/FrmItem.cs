@@ -32,6 +32,7 @@ namespace EFTTools.UI {
             panel.Controls.Add(new CtlTextItem("仓库宽度", props.Get("Width")));
             panel.Controls.Add(new CtlTextItem("堆叠数量", props.Get("StackMaxSize")));
             panel.Controls.Add(new CtlTextItem("重量", props.Get("Weight")));
+            panel.Controls.Add(new CtlTextItem("bundle", props.GetBundle()));
             panel.Controls.Add(new CtlButtonItem("上级物品", new ButtonModel(GetItemName(item.ParentId), item.ParentId)));
 
             if (props.TryGetItemSlots(out var slots)) {
