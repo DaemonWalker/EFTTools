@@ -1,0 +1,8 @@
+{
+    "name": "my-items",
+    "author": "215136855",
+    "version": "0.1.0",
+    "license": "MIT",
+    "main": "main.js",
+    "akiVersion": ">=1.0.0"
+}
