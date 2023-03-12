@@ -30,18 +30,21 @@
             // 
             panel.Dock = System.Windows.Forms.DockStyle.Fill;
             panel.Location = new System.Drawing.Point(0, 0);
+            panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             panel.Name = "panel";
-            panel.Size = new System.Drawing.Size(800, 450);
+            panel.Size = new System.Drawing.Size(922, 494);
             panel.TabIndex = 0;
             // 
             // FrmMain
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 450);
+            ClientSize = new System.Drawing.Size(922, 494);
             Controls.Add(panel);
+            Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             Name = "FrmMain";
-            Text = "Form1";
+            Text = "地图选择";
             Load += FrmMain_Load;
             ResumeLayout(false);
         }

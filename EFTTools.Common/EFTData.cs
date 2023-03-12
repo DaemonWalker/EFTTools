@@ -79,7 +79,16 @@ namespace EFTTools.Common {
             TryGetText($"{id} ShortName", out var sname);
             TryGetText($"{id} Description", out var des);
 
-            return (name, sname, des);
+            return (name?.Trim(), sname?.Trim(), des?.Trim());
+        }
+
+        public string GetItemName(string id) {
+            if (id == "54009119af1c881c07000029") {
+                return ITEM_TEXT_54009119af1c881c07000029.name ?? id;
+            }
+            TryGetText($"{id} Name", out var name);
+
+            return name?.Trim() ?? id;
         }
     }
 }
