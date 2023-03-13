@@ -25,16 +25,18 @@ namespace EFTTools.MyItems {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            ctlSearchItem1 = new CtlSearchItem();
             SuspendLayout();
             // 
             // ctlSearchItem1
             // 
-            ctlSearchItem1 = new CtlSearchItem();
             ctlSearchItem1.Dock = System.Windows.Forms.DockStyle.Fill;
+            ctlSearchItem1.EFTData = null;
             ctlSearchItem1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             ctlSearchItem1.Location = new System.Drawing.Point(0, 0);
             ctlSearchItem1.Margin = new System.Windows.Forms.Padding(4);
             ctlSearchItem1.Name = "ctlSearchItem1";
+            ctlSearchItem1.OnSelectedCallback = null;
             ctlSearchItem1.Size = new System.Drawing.Size(800, 450);
             ctlSearchItem1.TabIndex = 0;
             // 
@@ -45,7 +47,7 @@ namespace EFTTools.MyItems {
             ClientSize = new System.Drawing.Size(800, 450);
             Controls.Add(ctlSearchItem1);
             Name = "FrmItemSearch";
-            Text = "FrmItemSearch";
+            Text = "物品搜索";
             Load += FrmItemSearch_Load;
             ResumeLayout(false);
         }
