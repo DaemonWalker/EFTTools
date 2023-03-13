@@ -7,6 +7,7 @@ const foo = () => {
     }
 
     const replaceItems = (config, container) => {
+        const items = container.resolve("DatabaseServer").getTables().templates.items;
         const locations = container.resolve("DatabaseServer").getTables().locations;
 
         for (const conf in config) {
@@ -18,13 +19,15 @@ const foo = () => {
 
             const spawnpoints = eftMap.looseLoot.spawnpoints;
             for (const sp of spawnpoints) {
-                for (const id of sp.itemDistribution) {
-                    const configItem = config[conf][id]
+                sp["probability"] = 1
+                sp["IsAlwaysSpawn"] = true
+                for (const item of sp.itemDistribution) {
+                    const configItem = config[conf][item.tpl]
                     if (configItem === undefined) {
                         continue
                     }
-                    id.tpl = configItem.tpl
-                    id.relativeProbability = configItem.probably
+                    item.tpl = configItem.tpl
+                    item.relativeProbability = configItem.probably
                 }
             }
         }
