@@ -1,27 +1,26 @@
-using EFTTools.Common;
-using EFTTools.SharedControls;
+锘縰sing EFTTools.Common;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EFTTools.UI {
-    public partial class FrmMain : Form {
-        public static EFTData EFTData = null!;
-        public FrmMain() {
+namespace EFTTools.SharedControls {
+    public partial class CtlSearchItem : UserControl {
+        public Action<ItemModel>? OnSelectedCallback { get; set; }
+        public EFTData EFTData { get; set; } = null!;
+        public CtlSearchItem() {
             InitializeComponent();
-        }
-
-
-        private void FrmMain_Load(object sender, EventArgs e) {
+            drpSearchType.SelectedIndex = 1;
         }
 
         private void btnSearch_Click(object sender, EventArgs e) {
             if (string.IsNullOrEmpty(txtSearch.Text)) {
-                FrmUtils.ShowWarnMessage(message: "请输入任意内容再进行搜索");
+                FrmUtils.ShowWarnMessage(message: "璇疯緭鍏ヤ换鎰忓唴瀹瑰啀杩涜鎼滅储");
                 return;
             }
 
@@ -42,9 +41,8 @@ namespace EFTTools.UI {
             if (e.RowIndex < 0) {
                 return;
             }
-            var id = dgvItems.Rows[e.RowIndex].Cells[0].Value.ToString()!;
-            var frm = new FrmItem(id);
-            frm.ShowDialog();
+            var model = (ItemModel)dgvItems.Rows[e.RowIndex].DataBoundItem;
+            OnSelectedCallback?.Invoke(model);
         }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e) {
@@ -53,22 +51,6 @@ namespace EFTTools.UI {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
-        }
-
-        private void FrmMain_Shown(object sender, EventArgs e) {
-            if (File.Exists("EFT.pos")) {
-                Utils.BaseDir = File.ReadAllText("EFT.pos");
-            }
-            else {
-                if (fb.ShowDialog() != DialogResult.OK) {
-                    this.Close();
-                }
-                File.WriteAllText("EFT.pos", fb.SelectedPath);
-                Utils.BaseDir = fb.SelectedPath;
-            }
-            EFTData = new EFTData();
-            dgvItems.AutoGenerateColumns = false;
-            drpSearchType.SelectedIndex = 0;
         }
     }
 }

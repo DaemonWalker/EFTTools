@@ -1,0 +1,18 @@
+{
+    "bigmap": {
+        "itemA": {
+            "to": "itemB",
+            "probably": "10"
+        }
+    },
+    "woods": {},
+    "factory4_day": {},
+    "factory4_night": {},
+    "interchange": {},
+    "laboratory": {},
+    "lighthouse": {},
+    "rezervbase": {},
+    "shoreline": {},
+    "tarkovstreets": {},
+    "dust2": {}
+}

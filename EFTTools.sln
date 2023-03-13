@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFTTools.ConsoleApp", "EFTT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFTTools.UI", "EFTTools.UI\EFTTools.UI.csproj", "{E361A023-7ACF-41A0-97FF-77D7F830D6C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFTTools.MyItems", "EFTTools.MyItems\EFTTools.MyItems.csproj", "{AAE4AA32-E855-4DEE-B8EA-04B4029C6A9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFTTools.MyItems", "EFTTools.MyItems\EFTTools.MyItems.csproj", "{AAE4AA32-E855-4DEE-B8EA-04B4029C6A9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFTTools.SharedControls", "EFTTools.SharedControls\EFTTools.SharedControls.csproj", "{EFC03C00-7E59-4C74-A9EB-9B1F73E81183}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AAE4AA32-E855-4DEE-B8EA-04B4029C6A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAE4AA32-E855-4DEE-B8EA-04B4029C6A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAE4AA32-E855-4DEE-B8EA-04B4029C6A9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFC03C00-7E59-4C74-A9EB-9B1F73E81183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFC03C00-7E59-4C74-A9EB-9B1F73E81183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC03C00-7E59-4C74-A9EB-9B1F73E81183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFC03C00-7E59-4C74-A9EB-9B1F73E81183}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

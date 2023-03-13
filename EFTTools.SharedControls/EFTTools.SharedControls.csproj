@@ -1,20 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon>ico512.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="ico512.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\EFTTools.Common\EFTTools.Common.csproj" />
-    <ProjectReference Include="..\EFTTools.SharedControls\EFTTools.SharedControls.csproj" />
   </ItemGroup>
 
 </Project>
